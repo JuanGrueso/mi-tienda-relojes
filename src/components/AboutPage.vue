@@ -8,8 +8,7 @@
     </p>
     <p>
       Creemos que un reloj es más que un simple instrumento para medir el tiempo; es una declaración de estilo, una 
-      pieza de artesanía y, a menudo, un legado. Por eso, nos dedicamos a traer a nuestros clientes piezas que no solo 
-      son hermosas, sino que también cumplen con los más altos estándares de calidad y durabilidad.
+      pieza de artesanía y, un lee calidad y durabilidad.
     </p>
     <p>
       Nuestra misión es proporcionarte una experiencia de compra excepcional, con un servicio al cliente amigable y 
