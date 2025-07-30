@@ -1,6 +1,6 @@
 <template>
   <div class="contact-page">
-    <h2>Contáctanos</h2>
+    <h2>Contactanos</h2>
     <p class="intro-text">
       ¿Tienes alguna pregunta, sugerencia o necesitas ayuda? ¡Estamos aquí para asistirte! 
       Puedes contactarnos a través del siguiente formulario o utilizando la información de contacto a continuación.
