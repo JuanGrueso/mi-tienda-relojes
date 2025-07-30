@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-// No necesita lógica específica por ahora, solo es contenido estático.
+
 </script>
 
 <style scoped>
