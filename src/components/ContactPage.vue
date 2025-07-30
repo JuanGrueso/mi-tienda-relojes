@@ -35,9 +35,9 @@
     </form>
 
     <div class="contact-info">
-      <h3>También puedes encontrarnos en:</h3>
+      <h3>Tambien puedes encontrarnos en:</h3>
       <ul>
-        <li><strong>Email:</strong> <a href="mailto:info@mitiendaderelojes.com">info@mitiendaderelojes.com</a></li>
+        <li><strong>Emai:</strong> <a href="mailto:info@mitiendaderelojes.com">info@mitiendaderelojes.com</a></li>
         <li><strong>Teléfono:</strong> +57 310 123 4567</li>
         <li><strong>Dirección:</strong> Calle 123 #45-67, Cali, Valle del Cauca, Colombia</li>
       </ul>
