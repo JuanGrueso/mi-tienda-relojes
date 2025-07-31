@@ -6,13 +6,15 @@
     </main>
     <NotificationToast />
     <CartModal /> 
+    <FilterModal /> 
   </div>
 </template>
 
 <script setup>
 import Header from './components/Header.vue';
 import NotificationToast from './components/NotificationToast.vue';
-import CartModal from './components/CartModal.vue'; // <-- Importa el nuevo componente de la modal
+import CartModal from './components/CartModal.vue';
+import FilterModal from './components/FilterModal.vue'; // <-- Importa el nuevo componente de la modal de filtro
 </script>
 
 <style>
@@ -40,13 +42,12 @@ main {
 body {
   margin: 0;
   background-color: #f8f9fa;
-  /* Asegura que no haya scroll en el body cuando la modal esté abierta */
-  overflow: overlay; /* Permite una barra de scroll más moderna en algunos navegadores */
+  overflow-x: hidden; /* Evita scroll horizontal por si la modal lo causa */
 }
 
-/* Opcional: Para evitar que el contenido de fondo se mueva cuando aparece la modal */
+/* Clase para controlar el scroll del body cuando una modal está abierta */
 body.modal-open {
-  overflow: hidden;
+  overflow: hidden; /* Oculta la barra de desplazamiento y bloquea el scroll */
 }
 
 /* Estilos para enlaces del router para evitar subrayado predeterminado */
