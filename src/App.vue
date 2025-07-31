@@ -1,56 +1,57 @@
 <template>
   <div id="app">
     <Header />
-    
-    <main class="main-content">
-      <router-view /> 
+    <main>
+      <router-view />
     </main>
-    
-    </div>
+    <NotificationToast />
+    <CartModal /> 
+  </div>
 </template>
 
 <script setup>
-// Importa el componente Header para usarlo en App.vue
-import Header from './components/Header.vue'; 
-
-// Ya NO necesitas importar ProductList aquí directamente,
-// porque Vue Router se encargará de mostrarlo en <router-view>
-// según la ruta activa.
-// import ProductList from './components/ProductList.vue'; 
+import Header from './components/Header.vue';
+import NotificationToast from './components/NotificationToast.vue';
+import CartModal from './components/CartModal.vue'; // <-- Importa el nuevo componente de la modal
 </script>
 
 <style>
-/* Estilos globales para la aplicación */
-/* Estos estilos afectan a todo el cuerpo de tu página y al contenedor principal de la app */
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4; /* Fondo general de la página */
-  color: #333; /* Color de texto general */
-}
-
+/* Estilos globales (si los tienes) */
 #app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column; /* Organiza el Header y el main-content verticalmente */
-  min-height: 100vh; /* Asegura que la aplicación ocupe al menos toda la altura de la ventana */
+  flex-direction: column;
 }
 
-.main-content {
-  flex-grow: 1; /* Permite que el contenido principal ocupe todo el espacio vertical restante */
-  padding: 20px; /* Espaciado interno alrededor del contenido */
-  max-width: 1200px; /* Limita el ancho del contenido para que no se vea demasiado estirado en pantallas grandes */
-  margin: 20px auto; /* Centra el contenido principal horizontalmente */
+main {
+  flex-grow: 1; /* Esto hace que el contenido principal ocupe el espacio restante */
+  padding: 20px;
+  max-width: 1200px;
+  margin: 20px auto;
+  width: 100%;
+  box-sizing: border-box; /* Incluye padding en el ancho */
 }
 
-/* El h1 de "¡Bienvenido a tu Tienda de Relojes!" que tenías antes */
-/* fue eliminado de App.vue porque la idea es que el contenido de cada página */
-/* (como la lista de productos) tenga sus propios títulos. */
-/* Si quieres un título para la página de inicio, este iría dentro del componente ProductList o un componente Home dedicado. */
-/* h1 {
-  text-align: center;
-  color: #333;
-  margin-top: 50px;
-  margin-bottom: 30px;
-} */
+/* Estilos básicos para el body */
+body {
+  margin: 0;
+  background-color: #f8f9fa;
+  /* Asegura que no haya scroll en el body cuando la modal esté abierta */
+  overflow: overlay; /* Permite una barra de scroll más moderna en algunos navegadores */
+}
+
+/* Opcional: Para evitar que el contenido de fondo se mueva cuando aparece la modal */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Estilos para enlaces del router para evitar subrayado predeterminado */
+a {
+  text-decoration: none;
+  color: inherit;
+}
 </style>

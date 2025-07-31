@@ -31,10 +31,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'; // Ya no necesitamos 'inject' aquí
+import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
-import { products } from '../data/products.js'; // Importa tus productos
-import { addToCart } from '../services/cartService.js'; // Importa addToCart del servicio
+import { products } from '../data/products.js';
+import { addToCart } from '../services/cartService.js';
+import { showNotification } from '../services/notificationService.js'; // <-- Importa el nuevo servicio de notificación
 
 const route = useRoute(); 
 const router = useRouter(); 
@@ -50,16 +51,16 @@ onMounted(() => {
   }
 });
 
-// Cambiado para usar el addToCart del servicio
 const handleAddToCart = (productToAdd) => {
   addToCart(productToAdd);
-  alert(`"${productToAdd.name}" ha sido añadido al carrito.`);
+  // Reemplazamos el alert con la nueva notificación
+  showNotification(`"${productToAdd.name}" añadido al carrito.`);
 };
 
 const buyNow = (productToBuy) => {
-  addToCart(productToBuy); // Lo añade al carrito
-  alert(`Comprando "${productToBuy.name}" directamente. Redirigiendo al carrito...`);
-  router.push('/cart'); // Redirige al carrito
+  addToCart(productToBuy);
+  showNotification(`"${productToBuy.name}" añadido y redirigiendo al carrito.`, 5000); // Mensaje más largo
+  router.push('/cart');
 };
 </script>
 

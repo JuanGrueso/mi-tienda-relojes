@@ -7,11 +7,12 @@
         <li><router-link to="/about">Sobre Nosotros</router-link></li>
         <li><router-link to="/contact">Contacto</router-link></li>
         <li>
-          <router-link to="/cart" class="cart-link">
+          <button @click="openCartModal" class="cart-link-button">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="cart-icon">
               <path fill-rule="evenodd" d="M7.5 6V5.25a2.25 2.25 0 012.25-2.25h4.5A2.25 2.25 0 0116.5 5.25V6H17.25a2.25 2.25 0 012.25 2.25v10.5a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 18.75V8.25A2.25 2.25 0 016.75 6H7.5zM6 8.25V18.75a.75.75 0 00.75.75h10.5a.75.75 0 00.75-.75V8.25H6zm8.25-2.25V5.25a.75.75 0 00-.75-.75h-4.5a.75.75 0 00-.75.75V6h6z" clip-rule="evenodd" />
             </svg>
-            Carrito ({{ cartTotalItems }}) </router-link>
+            Carrito ({{ cartTotalItems }})
+          </button>
         </li>
       </ul>
     </nav>
@@ -19,8 +20,8 @@
 </template>
 
 <script setup>
-// Importamos directamente la propiedad computada del servicio del carrito
 import { cartTotalItems } from '../services/cartService.js';
+import { openCartModal } from '../services/cartModalService.js'; // <-- Importa la función para abrir la modal
 </script>
 
 <style scoped>
@@ -94,12 +95,23 @@ import { cartTotalItems } from '../services/cartService.js';
   color: #007bff;
 }
 
-.cart-link {
+/* Nuevo estilo para el botón del carrito */
+.cart-link-button {
   display: flex;
   align-items: center;
   gap: 5px;
-  color: #007bff !important;
-  font-weight: 600 !important;
+  background: none; /* Elimina el fondo de botón por defecto */
+  border: none; /* Elimina el borde de botón por defecto */
+  color: #007bff; /* Color del texto y el ícono */
+  font-weight: 600;
+  font-size: 1.1em; /* Misma fuente que los enlaces de navegación */
+  cursor: pointer;
+  padding: 0; /* Elimina padding por defecto */
+  transition: color 0.3s ease;
+}
+
+.cart-link-button:hover {
+  color: #0056b3;
 }
 
 .cart-icon {
